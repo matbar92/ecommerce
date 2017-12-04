@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block head_title %}
+    Welcome to
+{% endblock %}
+
+{% block head_styles %}
+{% endblock %}
+
+{% block jumbotron2 %}
+    <div class="'container">
+            <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>ELO</h1>
+        <p>Co tam u Ciebie mordeczko??</p>
+        <p>To see the difference between static and fixed top navbars, just scroll.</p>
+        <p>
+            <a class="btn btn-lg btn-primary" href="https://getbootstrap.com/docs/3.3/components/#navbar" role="button">View navbar docs &raquo;</a>
+        </p>
+      </div>
+    </div>
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="row">
+
+
+{% for product in products %}
+    <div class="col-sm-12">
+    {{ product.title }}
+    {{ product.price }}
+        {% for item in product.productimage_set.all %}
+    <img src='{{ STATIC_URL }}{{ item.image.url }}'/>
+        {% endfor %}
+
+{% endfor %}
+
+</div>
+</div>
+
+{% endblock %}
